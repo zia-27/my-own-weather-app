@@ -73,3 +73,8 @@ header {
   border-bottom: 2px solid #dbe1ffad;
   padding-bottom: 15px;
 }
+
+footer {
+  color: #2721427c;
+  text-align: center;
+}
