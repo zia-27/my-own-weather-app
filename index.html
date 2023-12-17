@@ -3,6 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik+Scribble&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
     <title>T's Weather App</title>
   </head>
   <body>
@@ -15,21 +28,25 @@
             required
             class="search-box"
           />
-          <input type="submit" value="SEARCH" class="search-button" />
+          <input type="submit" value="Search" class="search-button" />
         </form>
       </header>
 
-      <main class="main-one">
-        <div id="main-details">
-          <h1 class>Philippines</h1>
+      <main id="main-one">
+        <div>
+          <h1 class="country-name">Philippines</h1>
           <p class="weather-emoji">☀️</p>
-          <p class="celsius-temp">29°C</p>
-          <p class="farenheit-temp">84.2°F</p>
-          <p class="weather-desc">Mostly Cloudy</p>
+        </div>
+        <div id="temp-weather-details">
+          <span class="celsius-temp">29°C</span>
+          <br />
+          <span class="farenheit-temp">84.2°F</span>
+          <br />
+          <span class="weather-desc">Mostly Cloudy</span>
         </div>
       </main>
 
-      <main class="main-two">
+      <main id="main-two">
         <p class="other-details">
           <span class="date-time">Sunday | November 17, 2023 | 21:25</span>
           <br />
