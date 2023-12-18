@@ -43,7 +43,17 @@ function formatDate(today) {
   return displayDay;
 }
 
+function searchCity(event) {
+  event.preventDefault();
+  let changeCity = document.querySelector(".search-box");
+  let newCity = document.querySelector(".country-name");
+  newCity.innerHTML = changeCity.value;
+}
+
 let today = new Date();
 let currentTimeDay = formatDate(today);
 let dayTime = document.querySelector(".date-time");
 dayTime.innerHTML = currentTimeDay;
+
+let searchBox = document.querySelector("#input-search");
+searchBox.addEventListener("submit", searchCity);
