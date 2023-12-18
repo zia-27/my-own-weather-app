@@ -52,6 +52,7 @@ header {
 }
 
 .country-name {
+  color: #1a296b;
   font-family: "Rubik Scribble", "Poppins";
   font-size: 47px;
   margin: 11px 27px;
@@ -59,22 +60,38 @@ header {
 
 .weather-emoji {
   font-size: 110px;
-  margin: 0px 80px;
+  margin: 0px 100px;
 }
 
 #temp-weather-details {
-  font-size: 25px;
-  /*  left: 393px;
-  bottom: 240px;
-  position: relative; */
+  top: 5px;
+  right: 25px;
+  position: relative;
+}
+
+.celsius-temp {
+  color: #1a296b;
+  font-size: 47px;
+  font-weight: bold;
+}
+
+.farenheit-temp {
+  font-size: 30px;
+}
+
+.weather-desc {
+  font-size: 18px;
+  font-style: italic;
 }
 
 #main-two {
   border-bottom: 2px solid #dbe1ffad;
+  margin-left: 40px;
   padding-bottom: 15px;
 }
 
 footer {
-  color: #2721427c;
+  color: #2721429a;
+  margin-top: 30px;
   text-align: center;
 }
