@@ -46,8 +46,10 @@ header {
 
 #main-one {
   border-top: 2px solid #dbe1ffad;
+  border-bottom: 2px solid #dbe1ffad;
   display: flex;
   justify-content: space-between;
+  padding-bottom: 20px;
   padding-top: 15px;
 }
 
@@ -55,12 +57,7 @@ header {
   color: #1a296b;
   font-family: "Rubik Scribble", "Poppins";
   font-size: 47px;
-  margin: 11px 27px;
-}
-
-.weather-emoji {
-  font-size: 110px;
-  margin: 0px 128px;
+  margin: 11px 24px;
 }
 
 #temp-weather-details {
@@ -98,9 +95,9 @@ header {
 }
 
 #main-two {
-  border-bottom: 2px solid #dbe1ffad;
-  margin-left: 40px;
-  padding-bottom: 15px;
+  bottom: 100px;
+  left: 40px;
+  position: relative;
 }
 
 .datetime-border {
@@ -115,7 +112,6 @@ header {
 
 footer {
   color: #2721429a;
-  margin-top: 30px;
   text-align: center;
 }
 
