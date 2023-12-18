@@ -100,11 +100,6 @@ header {
   position: relative;
 }
 
-.datetime-border {
-  color: #1a296b;
-  font-weight: bold;
-}
-
 .values {
   color: #1a296b;
   font-weight: bold;
