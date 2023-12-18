@@ -39,10 +39,11 @@ function formatDate(today) {
     minutes = `0${minutes}`;
   }
 
-  let displayDay = `${day} / ${month} ${date}, ${year} / ${hours}:${minutes}`;
+  let displayDay = `${day} - ${month} ${date}, ${year} - ${hours}:${minutes}`;
   return displayDay;
 }
 
 let today = new Date();
 let currentTimeDay = formatDate(today);
-let dayTime = document.querySelector();
+let dayTime = document.querySelector(".date-time");
+dayTime.innerHTML = currentTimeDay;
