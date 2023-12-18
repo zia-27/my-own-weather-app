@@ -48,7 +48,29 @@ function searchCity(event) {
   let changeCity = document.querySelector(".search-box");
   let newCity = document.querySelector(".country-name");
   newCity.innerHTML = changeCity.value;
+
+  changeTemp(changeCity.value);
 }
+
+function changeTemp(cityInput) {
+  let city = cityInput;
+  let apiKey = "o0dcab20a49t4ddfcbc102a01c83f7a7";
+  let apiURL = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+
+  axios.get(apiURL).then(displayTemp);
+}
+
+function displayTemp(response) {
+  let temp = Math.round(response.data.temperature.current);
+  let showTemp = document.querySelector(".celsius-temp");
+
+  showTemp.innerHTML = temp;
+}
+
+let origCity = document.querySelector(".country-name");
+changeTemp(origCity.textContent);
+
+console.log(origCity.textContent);
 
 let today = new Date();
 let currentTimeDay = formatDate(today);
