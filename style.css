@@ -100,7 +100,8 @@ header {
   position: relative;
 }
 
-.values {
+.humidity,
+.wind-speed {
   color: #1a296b;
   font-weight: bold;
 }

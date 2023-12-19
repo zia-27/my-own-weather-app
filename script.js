@@ -69,6 +69,10 @@ function displayTemp(response) {
   let fahrenheitTemp = Math.round((celsiusTemp * 9) / 5 + 32);
   let showFTemp = document.querySelector(".fahrenheit-temp");
   showFTemp.innerHTML = fahrenheitTemp;
+
+  let humidity = response.data.temperature.humidity;
+  let showHumidity = document.querySelector(".humidity");
+  showHumidity.innerHTML = `${humidity}%`;
 }
 
 let origCity = document.querySelector(".country-name");
