@@ -61,7 +61,9 @@ function changeTemp(cityInput) {
 }
 
 function displayTemp(response) {
-  console.log(response.data);
+  let showIcon = document.querySelector("#weather-icon");
+  showIcon.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-emoji"/>`;
+
   let celsiusTemp = Math.round(response.data.temperature.current);
   let showCTemp = document.querySelector(".celsius-temp");
   showCTemp.innerHTML = celsiusTemp;
