@@ -57,10 +57,10 @@ function changeTemp(cityInput) {
   let apiKey = "o0dcab20a49t4ddfcbc102a01c83f7a7";
   let apiURL = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
 
-  axios.get(apiURL).then(displayTemp);
+  axios.get(apiURL).then(displayDetails);
 }
 
-function displayTemp(response) {
+function displayDetails(response) {
   let showIcon = document.querySelector("#weather-icon");
   showIcon.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-emoji"/>`;
 
