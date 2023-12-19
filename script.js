@@ -1,99 +1,102 @@
-function formatDate(today) {
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
+document.addEventListener("DOMContentLoaded", function () {
+  function formatDate(today) {
+    let days = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ];
 
-  let months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
+    let months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
 
-  let day = days[today.getDay()];
-  let month = months[today.getMonth()];
-  let date = today.getDate();
-  let year = today.getFullYear();
-  let hours = today.getHours();
-  let minutes = today.getMinutes();
+    let day = days[today.getDay()];
+    let month = months[today.getMonth()];
+    let date = today.getDate();
+    let year = today.getFullYear();
+    let hours = today.getHours();
+    let minutes = today.getMinutes();
 
-  if (hours < 10) {
-    hours = `0${hours}`;
+    if (hours < 10) {
+      hours = `0${hours}`;
+    }
+
+    if (minutes < 10) {
+      minutes = `0${minutes}`;
+    }
+
+    let displayDay = `${day} - ${month} ${date}, ${year} - ${hours}:${minutes}`;
+    return displayDay;
   }
 
-  if (minutes < 10) {
-    minutes = `0${minutes}`;
+  function searchCity(event) {
+    event.preventDefault();
+    let changeCity = document.querySelector(".search-box");
+    let newCity = document.querySelector(".country-name");
+    newCity.innerHTML = changeCity.value;
+
+    changeTemp(changeCity.value);
   }
 
-  let displayDay = `${day} - ${month} ${date}, ${year} - ${hours}:${minutes}`;
-  return displayDay;
-}
+  function changeTemp(cityInput) {
+    let city = cityInput;
+    let apiKey = "o0dcab20a49t4ddfcbc102a01c83f7a7";
+    let apiURL = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
 
-function searchCity(event) {
-  event.preventDefault();
-  let changeCity = document.querySelector(".search-box");
-  let newCity = document.querySelector(".country-name");
-  newCity.innerHTML = changeCity.value;
+    axios.get(apiURL).then(displayDetails);
+  }
 
-  changeTemp(changeCity.value);
-}
+  function displayDetails(response) {
+    let celsiusTemp = Math.round(response.data.temperature.current);
+    let showCTemp = document.querySelector(".celsius-temp");
+    showCTemp.innerHTML = celsiusTemp;
 
-function changeTemp(cityInput) {
-  let city = cityInput;
-  let apiKey = "o0dcab20a49t4ddfcbc102a01c83f7a7";
-  let apiURL = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+    let fahrenheitTemp = Math.round((celsiusTemp * 9) / 5 + 32);
+    let showFTemp = document.querySelector(".fahrenheit-temp");
+    showFTemp.innerHTML = fahrenheitTemp;
 
-  axios.get(apiURL).then(displayDetails);
-}
+    let weather = response.data.condition.description;
+    let showDescription = document.querySelector(".weather-desc");
+    showDescription.innerHTML = weather.toUpperCase();
 
-function displayDetails(response) {
-  let showIcon = document.querySelector("#weather-icon");
-  showIcon.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-emoji"/>`;
+    let humidity = response.data.temperature.humidity;
+    let showHumidity = document.querySelector(".humidity");
+    showHumidity.innerHTML = `${humidity}%`;
 
-  let celsiusTemp = Math.round(response.data.temperature.current);
-  let showCTemp = document.querySelector(".celsius-temp");
-  showCTemp.innerHTML = celsiusTemp;
+    let windSpeed = response.data.wind.speed;
+    let showWindSpeed = document.querySelector(".wind-speed");
+    showWindSpeed.innerHTML = `${windSpeed}km/h`;
 
-  let fahrenheitTemp = Math.round((celsiusTemp * 9) / 5 + 32);
-  let showFTemp = document.querySelector(".fahrenheit-temp");
-  showFTemp.innerHTML = fahrenheitTemp;
+    let icon = response.data.condition.icon_url;
+    let showIcon = document.querySelector("#weather-icon");
+    showIcon.innerHTML = `<img src="${icon}" class="weather-emoji"/>`;
+  }
 
-  let weather = response.data.condition.description;
-  let showDescription = document.querySelector(".weather-desc");
-  showDescription.innerHTML = weather.toUpperCase();
+  let origCity = document.querySelector(".country-name");
+  changeTemp(origCity.textContent);
 
-  let humidity = response.data.temperature.humidity;
-  let showHumidity = document.querySelector(".humidity");
-  showHumidity.innerHTML = `${humidity}%`;
+  console.log(origCity.textContent);
 
-  let windSpeed = response.data.wind.speed;
-  let showWindSpeed = document.querySelector(".wind-speed");
-  showWindSpeed.innerHTML = `${windSpeed}km/h`;
-}
+  let today = new Date();
+  let currentTimeDay = formatDate(today);
+  let dayTime = document.querySelector(".date-time");
+  dayTime.innerHTML = currentTimeDay;
 
-let origCity = document.querySelector(".country-name");
-changeTemp(origCity.textContent);
-
-console.log(origCity.textContent);
-
-let today = new Date();
-let currentTimeDay = formatDate(today);
-let dayTime = document.querySelector(".date-time");
-dayTime.innerHTML = currentTimeDay;
-
-let searchBox = document.querySelector("#input-search");
-searchBox.addEventListener("submit", searchCity);
+  let searchBox = document.querySelector("#input-search");
+  searchBox.addEventListener("submit", searchCity);
+});
