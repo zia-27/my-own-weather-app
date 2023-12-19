@@ -79,11 +79,11 @@ header {
   position: relative;
 }
 
-.farenheit-temp {
+.fahrenheit-temp {
   font-size: 30px;
 }
 
-.degree-farenheit {
+.degree-fahrenheit {
   bottom: 8px;
   font-size: 20px;
   position: relative;

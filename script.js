@@ -61,10 +61,14 @@ function changeTemp(cityInput) {
 }
 
 function displayTemp(response) {
-  let temp = Math.round(response.data.temperature.current);
-  let showTemp = document.querySelector(".celsius-temp");
+  console.log(response.data);
+  let celsiusTemp = Math.round(response.data.temperature.current);
+  let showCTemp = document.querySelector(".celsius-temp");
+  showCTemp.innerHTML = celsiusTemp;
 
-  showTemp.innerHTML = temp;
+  let fahrenheitTemp = Math.round((celsiusTemp * 9) / 5 + 32);
+  let showFTemp = document.querySelector(".fahrenheit-temp");
+  showFTemp.innerHTML = fahrenheitTemp;
 }
 
 let origCity = document.querySelector(".country-name");
