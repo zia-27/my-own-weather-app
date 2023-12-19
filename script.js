@@ -70,9 +70,17 @@ function displayTemp(response) {
   let showFTemp = document.querySelector(".fahrenheit-temp");
   showFTemp.innerHTML = fahrenheitTemp;
 
+  let weather = response.data.condition.description;
+  let showDescription = document.querySelector(".weather-desc");
+  showDescription.innerHTML = weather.toUpperCase();
+
   let humidity = response.data.temperature.humidity;
   let showHumidity = document.querySelector(".humidity");
   showHumidity.innerHTML = `${humidity}%`;
+
+  let windSpeed = response.data.wind.speed;
+  let showWindSpeed = document.querySelector(".wind-speed");
+  showWindSpeed.innerHTML = `${windSpeed}km/h`;
 }
 
 let origCity = document.querySelector(".country-name");
