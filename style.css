@@ -48,7 +48,6 @@ header {
   border-top: 2px solid #dbe1ffad;
   display: flex;
   justify-content: space-between;
-  padding-bottom: 25px;
   padding-top: 20px;
 }
 
@@ -58,13 +57,12 @@ header {
   font-size: 47px;
   margin: 11px 24px;
   position: relative;
-  left: 65px;
+  left: 75px;
   bottom: 100px;
 }
 
 #weather-icon {
-  bottom: 11px;
-  right: 10px;
+  bottom: 6px;
   position: relative;
 }
 
@@ -98,14 +96,14 @@ header {
 
 .weather-desc {
   color: #1a296b;
-  font-size: 18px;
+  font-size: 21px;
   font-style: italic;
   font-weight: bold;
 }
 
 #main-two {
   bottom: 20px;
-  left: 40px;
+  left: 50px;
   position: relative;
 }
 
