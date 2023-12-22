@@ -102,6 +102,10 @@ header {
 }
 
 #main-two {
+  border-bottom: 2px solid #dbe1ffad;
+}
+
+#extra-details {
   bottom: 20px;
   left: 50px;
   position: relative;
@@ -124,4 +128,21 @@ footer {
   color: #401a6ba2;
   font-weight: bold;
   text-decoration: underline;
+}
+
+#weather-forecast {
+  margin: 35px 0 30px 0;
+  text-align: center;
+}
+
+#forecast-day,
+.forecast-max-temp {
+  color: #1a296b;
+  font-size: 21px;
+  font-weight: bold;
+}
+
+.forecast-min-temp {
+  font-size: 18px;
+  opacity: 90%;
 }

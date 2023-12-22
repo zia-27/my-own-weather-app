@@ -50,15 +50,34 @@
       </main>
 
       <main id="main-two">
-        <span class="weather-desc"></span>
-        <br />
-        <span class="date-time">Date & Time Error</span>
-        <br />
-        <p>
-          Humidity: <span class="humidity"></span> Wind Speed:
-          <span class="wind-speed"></span>
-        </p>
+        <div id="extra-details">
+          <span class="weather-desc"></span>
+          <br />
+          <span class="date-time">Date & Time Error</span>
+          <br />
+          <p>
+            Humidity: <span class="humidity"></span> Wind Speed:
+            <span class="wind-speed"></span>
+          </p>
+        </div>
       </main>
+
+      <div id="weather-forecast">
+        <div id="row">
+          <div id="two-col">
+            <div id="forecast-day">SAT</div>
+            <img
+              src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/few-clouds-night.png"
+              alt="weather forecast icon"
+              width="80"
+            />
+            <div id="forecast-temp">
+              <span class="forecast-max-temp">18° </span>
+              <span class="forecast-min-temp"> 16°</span>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <footer>
         <p>
