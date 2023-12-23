@@ -87,6 +87,31 @@ document.addEventListener("DOMContentLoaded", function () {
     showIcon.innerHTML = `<img src="${icon}" class="weather-emoji"/>`;
   }
 
+  function displayForecast() {
+    let days = ["SUN", "MON", "TUES", "WED", "THURS"];
+    let forecastHtml = "";
+
+    days.forEach(function (day) {
+      forecastHtml =
+        forecastHtml +
+        `<div id="forecast-block">
+        <div id="forecast-day">${day}</div>
+        <img
+          src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/few-clouds-night.png"
+          alt="weather forecast icon"
+          width="80"
+        />
+        <div id="forecast-temp">
+          <span class="forecast-max-temp">18° </span>
+          <span class="forecast-min-temp"> 16°</span>
+        </div>
+      </div>`;
+    });
+
+    let forecastElement = document.querySelector("#forecast");
+    forecastElement.innerHTML = forecastHtml;
+  }
+
   let origCity = document.querySelector(".country-name");
   changeTemp(origCity.textContent);
 
@@ -99,4 +124,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let searchBox = document.querySelector("#input-search");
   searchBox.addEventListener("submit", searchCity);
+
+  displayForecast();
 });
