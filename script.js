@@ -85,9 +85,19 @@ document.addEventListener("DOMContentLoaded", function () {
     let icon = response.data.condition.icon_url;
     let showIcon = document.querySelector("#weather-icon");
     showIcon.innerHTML = `<img src="${icon}" class="weather-emoji"/>`;
+
+    getForecast(response.data.city);
   }
 
-  function displayForecast() {
+  function getForecast(city) {
+    let apiKey = "o0dcab20a49t4ddfcbc102a01c83f7a7";
+    let apiURL = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+
+    axios(apiURL).then(displayForecast);
+  }
+
+  function displayForecast(response) {
+    console.log(response.data);
     let days = ["SUN", "MON", "TUES", "WED", "THURS"];
     let forecastHtml = "";
 
@@ -124,6 +134,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let searchBox = document.querySelector("#input-search");
   searchBox.addEventListener("submit", searchCity);
-
-  displayForecast();
 });

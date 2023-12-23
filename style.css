@@ -131,6 +131,8 @@ footer {
 }
 
 .weather-forecast {
+  display: flex;
+  justify-content: space-around;
   margin: 35px 0 30px 0;
   text-align: center;
 }
