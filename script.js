@@ -134,7 +134,7 @@ document.addEventListener("DOMContentLoaded", function () {
     forecastElement.innerHTML = forecastHtml;
   }
 
-  let origCity = document.querySelector(".country-name");
+  let origCity = document.querySelector(".city-name");
   changeTemp(origCity.textContent);
 
   console.log(origCity.textContent);
