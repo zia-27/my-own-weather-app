@@ -96,26 +96,38 @@ document.addEventListener("DOMContentLoaded", function () {
     axios(apiURL).then(displayForecast);
   }
 
+  function formatForecastDay(timestamp) {
+    let date = new Date(timestamp * 1000);
+    let days = ["SUN", "MON", "TUES", "WED", "THURS", "FRI", "SAT"];
+
+    return days[date.getDay()];
+  }
+
   function displayForecast(response) {
     console.log(response.data);
-    let days = ["SUN", "MON", "TUES", "WED", "THURS"];
     let forecastHtml = "";
 
-    days.forEach(function (day) {
-      forecastHtml =
-        forecastHtml +
-        `<div id="forecast-block">
-        <div id="forecast-day">${day}</div>
+    response.data.daily.forEach(function (day, index) {
+      if (index < 5) {
+        forecastHtml =
+          forecastHtml +
+          `<div id="forecast-block">
+        <div id="forecast-day">${formatForecastDay(day.time)}</div>
         <img
-          src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/few-clouds-night.png"
+          src="${day.condition.icon_url}"
           alt="weather forecast icon"
           width="80"
         />
         <div id="forecast-temp">
-          <span class="forecast-max-temp">18° </span>
-          <span class="forecast-min-temp"> 16°</span>
+          <span class="forecast-max-temp">${Math.round(
+            day.temperature.maximum
+          )}° </span>
+          <span class="forecast-min-temp">${Math.round(
+            day.temperature.minimum
+          )}°</span>
         </div>
       </div>`;
+      }
     });
 
     let forecastElement = document.querySelector("#forecast");
