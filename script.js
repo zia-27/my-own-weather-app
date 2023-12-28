@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function searchCity(event) {
     event.preventDefault();
     let changeCity = document.querySelector(".search-box");
-    let newCity = document.querySelector(".country-name");
+    let newCity = document.querySelector(".city-name");
     newCity.innerHTML = changeCity.value;
 
     changeTemp(changeCity.value);
@@ -104,7 +104,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function displayForecast(response) {
-    console.log(response.data);
     let forecastHtml = "";
 
     response.data.daily.forEach(function (day, index) {
